@@ -10,18 +10,14 @@ function submitForm(e) {
   for (let i = 1; i <= amount; i += 1) {
     createPromise(i, delay)
       .then(({ position, delay }) => {
-        setTimeout(() => {
-          Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
-            position: 'center-center',
-          });
-        }, delay);
+        Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
+          position: 'center-center',
+        });
       })
       .catch(({ position, delay }) => {
-        setTimeout(() => {
-          Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
-            position: 'center-center',
-          });
-        }, delay);
+        Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`, {
+          position: 'center-center',
+        });
       });
     delay += step;
   }
@@ -30,9 +26,11 @@ function submitForm(e) {
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
   return new Promise((resolve, reject) => {
-    if (shouldResolve) {
-      resolve({ position, delay });
-    }
-    reject({ position, delay });
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve({ position, delay });
+      }
+      reject({ position, delay });
+    }, delay);
   });
 }
