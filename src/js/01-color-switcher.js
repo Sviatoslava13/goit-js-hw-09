@@ -2,12 +2,14 @@ const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 startBtn.addEventListener('click', activeStartBtn);
 stopBtn.addEventListener('click', inActiveBtn);
-  let timerId = null;
+let timerId = null;
+   stopBtn.disabled = true;
 function activeStartBtn() {
 
   timerId = setInterval(() => {
     document.body.style.background = getRandomHexColor();
   }, 1000);
+  
   if (startBtn) {
     startBtn.disabled = true;
   }
