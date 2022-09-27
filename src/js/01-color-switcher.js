@@ -5,7 +5,7 @@ startBtn.addEventListener('click', activeStartBtn);
 stopBtn.addEventListener('click', inActiveBtn);
 
 function activeStartBtn() {
-  timerId = setInterval(() => {
+  timerIdi = setInterval(() => {
     document.body.style.background = getRandomHexColor();
   }, 1000);
   if (startBtn) {
@@ -15,7 +15,7 @@ function activeStartBtn() {
   stopBtn.disabled = false;
 }
 function inActiveBtn() {
-  clearInterval(timerId);
+  clearInterval(timerIdi);
   startBtn.disabled = false;
   if (stopBtn) {
     stopBtn.disabled = true;
