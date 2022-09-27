@@ -16,3 +16,12 @@ img {
   display: block;
   max-width: 100%;
 }
+.value {
+  font-size: 25px;
+      display: flex;
+}
+.field {
+    display: inline-grid;
+    margin-right: 10px;
+ 
+}
